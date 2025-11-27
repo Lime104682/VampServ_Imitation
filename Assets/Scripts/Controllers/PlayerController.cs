@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     Vector3 _movePlayer;
 
     SpriteRenderer _sprite;
+    public FloatingJoystick _joystick;
 
     [SerializeField]
     private float _speed = 0.1f;
@@ -19,8 +20,8 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        _movePlayer.x = Input.GetAxisRaw("Horizontal");
-        _movePlayer.y = Input.GetAxisRaw("Vertical");
+        _movePlayer.x = _joystick.Horizontal;
+        _movePlayer.y = _joystick.Vertical;
 
         Vector3 dir = _movePlayer.normalized * _speed * Time.fixedDeltaTime;
 
