@@ -10,28 +10,8 @@ public class Managers : MonoBehaviour
     static Managers s_instance;
     static bool s_init = false;
 
-    #region Contents
-    //GameManager _game = new GameManager();
-    ////ObjectManager _object = new ObjectManager();
-    ////PoolManager _pool = new PoolManager();
-    //public static GameManager Game { get { return Instance?._game; } }
-    //public static ObjectManager Object { get { return Instance?._object; } }
-    //public static PoolManager Pool { get { return Instance?._pool; } }
-    //#endregion
-
-    //#region Core
-    //DataManager _data = new DataManager();
     ResourceManager _resource = new ResourceManager();
-    //SceneManagerEx _scene = new SceneManagerEx();
-    //SoundManager _sound = new SoundManager();
-    //UIManager _ui = new UIManager();
-    //public static DataManager Data { get { return Instance?._data; } }
     public static ResourceManager Resource { get { return Instance?._resource; } }
-    //public static SceneManagerEx Scene { get { return Instance?._scene; } }
-    //public static SoundManager Sound { get { return Instance?._sound; } }
-    //public static UIManager UI { get { return Instance?._ui; } }
-    #endregion
-
 
     //매니저 생성 
     public static Managers Instance
@@ -40,7 +20,6 @@ public class Managers : MonoBehaviour
         {
             if(s_init == false)
             {
-                s_init = true;
                 GameObject go = GameObject.Find("GameManagers");
                 if (go == null)
                 {
@@ -51,12 +30,40 @@ public class Managers : MonoBehaviour
 
                 DontDestroyOnLoad(go);
                 s_instance = go.GetComponent<Managers>();
-
+                
+                s_init = true;
             }
 
             return s_instance;
         }
         
     }
+
+
+    #region 복사한것
+    #region Contents
+    //GameManager _game = new GameManager();
+    //ObjectManager _object = new ObjectManager();
+    //PoolManager _pool = new PoolManager();
+    //public static GameManager Game { get { return Instance?._game; } }
+    //public static ObjectManager Object { get { return Instance?._object; } }
+    //public static PoolManager Pool { get { return Instance?._pool; } }
+    #endregion
+
+    #region Core
+    //DataManager _data = new DataManager();
+    //ResourceManager _resource = new ResourceManager();
+    //SceneManagerEx _scene = new SceneManagerEx();
+    //SoundManager _sound = new SoundManager();
+    //UIManager _ui = new UIManager();
+    //public static DataManager Data { get { return Instance?._data; } }
+    //public static ResourceManager Resource { get { return Instance?._resource; } }
+    //public static SceneManagerEx Scene { get { return Instance?._scene; } }
+    //public static SoundManager Sound { get { return Instance?._sound; } }
+    //public static UIManager UI { get { return Instance?._ui; } }
+    #endregion
+
+    #endregion
+
 
 }

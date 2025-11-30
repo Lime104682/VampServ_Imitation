@@ -4,14 +4,37 @@ using UnityEngine;
 
 public class GameScene : MonoBehaviour
 {
-
     void Start()
     {
-
         Managers.Resource.LoadAllAsync<GameObject>("Prefabs", (key, count, totalCount) =>
         {
             Debug.Log($"{key} {count}/{totalCount}");
 
+            if(count == totalCount)
+            {
+               
+
+                var player = Managers.Resource.Instantiate("Player.prefab");
+                player.name = "Player";
+
+                GameObject monsters = new GameObject() { name = "Monsters" };
+
+                var snake = Managers.Resource.Instantiate("Snake_01.prefab");
+                snake.transform.parent = monsters.transform;
+
+                var joystick = Managers.Resource.Instantiate("Floating Joystick.prefab");
+                joystick.name = "@UI_Joystick";
+
+                GameObject canvas = GameObject.Find("Canvas");
+                joystick.transform.parent = canvas.transform;
+
+                var map = Managers.Resource.Instantiate("Map.prefab");
+                map.name = "@Map"; 
+                
+                Camera.main.GetComponent<CameraController>()._target = player.gameObject;
+                player.gameObject.GetComponent<PlayerController>()._joystick 
+                = joystick.gameObject.GetComponent<FloatingJoystick>();
+            }
         });
     }
 
