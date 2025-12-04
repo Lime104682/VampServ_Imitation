@@ -7,13 +7,14 @@ public class BaseController : MonoBehaviour
 {
     public ObjectType ObjectType { get; protected set; }
 
+    bool _init = false;
+
     // Start is called before the first frame update
     void Awake()
     {
         Init();
     }
 
-    bool _init = false;
     public virtual bool Init()
     {
         if (_init)
@@ -23,9 +24,13 @@ public class BaseController : MonoBehaviour
         return true;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        UpdateController();
+    }
+
+    public virtual void UpdateController()
+    {
+
     }
 }

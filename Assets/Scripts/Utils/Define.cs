@@ -24,4 +24,14 @@ public static class Define
         Projectile, //투사체
         Env //환경채집물
     }
+    public enum SkillType
+    {
+        None,
+        Melee,
+        Projectile,
+        Etc,
+    }
+
+    public const string PLAYER_DATA_ID = "Player.prefab";
+    public const string EXP_GEM_PREFAB = "EXPGem.prefab";
 }

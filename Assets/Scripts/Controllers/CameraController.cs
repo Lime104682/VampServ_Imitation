@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
+//카메라 이동
+
 public class CameraController : MonoBehaviour
 {
     public GameObject _target;

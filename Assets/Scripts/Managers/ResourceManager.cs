@@ -28,13 +28,15 @@ public class ResourceManager
 			return null;
 		}
 
-		// Pooling
-		//if (pooling)
-		//	return Managers.Pool.Pop(prefab);
+        // Pooling
+        if (pooling)
+		{
+            return Managers.Pool.Pop(prefab);
+        }
 
-		GameObject go = Object.Instantiate(prefab, parent);
-		go.name = prefab.name;
-		return go;
+        GameObject go = Object.Instantiate(prefab, parent);
+        go.name = prefab.name;
+        return go;
 	}
 
 	public void Destroy(GameObject go)
@@ -42,8 +44,8 @@ public class ResourceManager
 		if (go == null)
 			return;
 
-		//if (Managers.Pool.Push(go))
-		//	return;
+		if (Managers.Pool.Push(go))
+			return;
 
 		Object.Destroy(go);
 	}
@@ -58,8 +60,14 @@ public class ResourceManager
 			return;
 		}
 
+		string loadKey = key;
+		if (key.Contains(".sprite"))
+		{
+			loadKey = $"{key}[{key.Replace(".sprite", "")}]";
+		}
+
 		// 리소스 비동기 로딩 시작.
-		var asyncOperation = Addressables.LoadAssetAsync<T>(key);
+		var asyncOperation = Addressables.LoadAssetAsync<T>(loadKey);
 		asyncOperation.Completed += (op) =>
 		{
 			_resources.Add(key, op.Result);

@@ -9,14 +9,6 @@ public class PlayerController : CreatureController
     SpriteRenderer _sprite;
     public FloatingJoystick _joystick;
 
-    [SerializeField]
-    private float _speed = 0.1f;
-
-    private void Start()
-    {
-        _sprite = GetComponent<SpriteRenderer>();
-    }
-
 
     private void Update()
     {
@@ -28,12 +20,24 @@ public class PlayerController : CreatureController
         transform.position += dir;
 
         //ÁÂ¿ì º¯È¯
-        Cheange();
+        GetComponent<SpriteRenderer>().flipX = _movePlayer.x > 0;
     }
 
-    private void Cheange()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (_movePlayer.x < 0) _sprite.flipX = false;
-        else if (_movePlayer.x > 0) _sprite.flipX = true;
+        MonsterController target = collision.gameObject.GetComponent<MonsterController>();
+        if (target == null) 
+            return;
+    }
+
+    public override void OnDamaged(BaseController attacker, int damage)
+    {
+        base.OnDamaged(attacker, damage);
+
+        Debug.Log($"OnDamaged ! {Hp}");
+
+        // TEMP
+        CreatureController cc = attacker as CreatureController;
+        cc?.OnDamaged(this, 10000);
     }
 }
