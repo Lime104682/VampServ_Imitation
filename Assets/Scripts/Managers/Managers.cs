@@ -14,10 +14,12 @@ public class Managers : MonoBehaviour
     ObjectManager _object = new ObjectManager();
     PoolManager _pool = new PoolManager();
     GemController _Gem = new GemController();
+    DataManager _data = new DataManager();
     public static ResourceManager Resource { get { return Instance?._resource; } }
     public static ObjectManager Object {  get { return Instance?._object; } }
     public static PoolManager Pool { get { return Instance?._pool; } }
     public static GemController Gem {  get { return Instance?._Gem; } }
+    public static DataManager Data { get { return Instance?._data; } }
 
     //매니저 생성 
     public static Managers Instance
@@ -45,6 +47,11 @@ public class Managers : MonoBehaviour
         
     }
 
+    public void init()
+    {
+        _data.Init();
+    }
+
 
     #region 복사한것
     #region Contents
@@ -53,11 +60,9 @@ public class Managers : MonoBehaviour
     #endregion
 
     #region Core
-    //DataManager _data = new DataManager();
     //SceneManagerEx _scene = new SceneManagerEx();
     //SoundManager _sound = new SoundManager();
     //UIManager _ui = new UIManager();
-    //public static DataManager Data { get { return Instance?._data; } }
     //public static SceneManagerEx Scene { get { return Instance?._scene; } }
     //public static SoundManager Sound { get { return Instance?._sound; } }
     //public static UIManager UI { get { return Instance?._ui; } }

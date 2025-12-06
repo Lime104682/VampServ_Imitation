@@ -16,7 +16,43 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: 4785dc013c81b814bbe772cfafe1a5ce
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 4b845ca3ff77dd448b761c10bcb3df2b
+    m_Address: PoisonField_AOE_01.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - FirstLoad
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 82412bf038f4901419eb47aefe134bd7
+    m_Address: MonsterProjectile.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - FirstLoad
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f2eff8b8ee32344418a65dce6c374c9b
+    m_Address: FireProjectile.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - FirstLoad
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 39a4b0dca794bdc4e93bcfbfae9b84e4
+    m_Address: EgoSword.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - FirstLoad
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0d329ebca1045c1498927ff40231f0af
+    m_Address: PoisonFieldProjectile.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - FirstLoad
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5f8fd6ddfdd3764459d464bc6fc81ef8
+    m_Address: WindCutter.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - FirstLoad
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 5e758224702a8b64eb54b984c2d48ac9, type: 2}
   m_SchemaSet:

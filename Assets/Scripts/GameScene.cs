@@ -13,8 +13,10 @@ public class GameScene : MonoBehaviour
         {
             Debug.Log($"{key} {count}/{totalCount}");
 
+            
             if (count == totalCount)
             {
+                Managers.Instance.init();
                 StartLoaded();
             }
         });
@@ -53,6 +55,15 @@ public class GameScene : MonoBehaviour
         Camera.main.GetComponent<CameraController>()._target = player.gameObject;
         player.gameObject.GetComponent<PlayerController>()._joystick
         = joystick.gameObject.GetComponent<FloatingJoystick>();
+
+        Debug.Log("조이스틱 완");
+        foreach (var playerData in Managers.Data.PlayerDic.Values)
+        {
+            Debug.Log("플레이어 데이터 로딩");
+            Debug.Log($"Lvl : {playerData.level}, Hp{playerData.maxHp}");
+        }
+
+        Debug.Log("플레이어 데이터 로딩 완");
     }
 
 }

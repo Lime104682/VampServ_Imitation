@@ -64,16 +64,25 @@ public class ResourceManager
 		if (key.Contains(".sprite"))
 		{
 			loadKey = $"{key}[{key.Replace(".sprite", "")}]";
-		}
 
-		// 리소스 비동기 로딩 시작.
-		var asyncOperation = Addressables.LoadAssetAsync<T>(loadKey);
-		asyncOperation.Completed += (op) =>
-		{
-			_resources.Add(key, op.Result);
-			callback?.Invoke(op.Result);
-		};
-	}
+			var asyncOperation = Addressables.LoadAssetAsync<Sprite>(loadKey);
+			asyncOperation.Completed += (op) =>
+			{
+				_resources.Add(key, op.Result);
+				callback?.Invoke(op.Result as T);
+			};
+		}
+		else
+        {
+            // 리소스 비동기 로딩 시작.
+            var asyncOperation = Addressables.LoadAssetAsync<T>(loadKey);
+            asyncOperation.Completed += (op) =>
+            {
+                _resources.Add(key, op.Result);
+                callback?.Invoke(op.Result);
+            };
+        }
+    }
 
 	public void LoadAllAsync<T>(string label, Action<string, int, int> callback) where T : UnityEngine.Object
 	{

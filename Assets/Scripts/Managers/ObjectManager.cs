@@ -52,7 +52,7 @@ public class ObjectManager
             Gems.Add(gc);
             gc.Init();
 
-            string key = UnityEngine.Random.Range(0, 2) == 0 ? "EXPGem_01" : "EXPGem_02";
+            string key = UnityEngine.Random.Range(0, 2) == 0 ? "EXPGem_01.sprite" : "EXPGem_02.sprite";
             Sprite sprite = Managers.Resource.Load<Sprite>(key);
             gc.GetComponent<SpriteRenderer>().sprite = sprite;
             if (sprite != null )
