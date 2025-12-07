@@ -56,14 +56,15 @@ public class GameScene : MonoBehaviour
         player.gameObject.GetComponent<PlayerController>()._joystick
         = joystick.gameObject.GetComponent<FloatingJoystick>();
 
-        Debug.Log("조이스틱 완");
         foreach (var playerData in Managers.Data.PlayerDic.Values)
         {
-            Debug.Log("플레이어 데이터 로딩");
             Debug.Log($"Lvl : {playerData.level}, Hp{playerData.maxHp}");
         }
 
-        Debug.Log("플레이어 데이터 로딩 완");
+        foreach (var skillData in Managers.Data.SkillDic.Values)
+        {
+            Debug.Log($"Name : {skillData.name}, skillType : {skillData.skillType}, damage : {skillData.damage}");
+        }
     }
 
 }

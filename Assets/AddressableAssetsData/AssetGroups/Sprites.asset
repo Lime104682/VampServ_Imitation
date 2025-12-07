@@ -18,13 +18,13 @@ MonoBehaviour:
   m_GUID: 2864bd5f0e1451941bac693fd92924cf
   m_SerializeEntries:
   - m_GUID: 2048ca76a24d3ff4383be192e5ac3fb4
-    m_Address: EXPGem_01
+    m_Address: EXPGem_01.sprite
     m_ReadOnly: 0
     m_SerializedLabels:
     - FirstLoad
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 58eca7a54a75368448c7f282bbde9cfd
-    m_Address: EXPGem_02
+    m_Address: EXPGem_02.sprite
     m_ReadOnly: 0
     m_SerializedLabels:
     - FirstLoad

@@ -55,27 +55,35 @@ public class ObjectManager
             string key = UnityEngine.Random.Range(0, 2) == 0 ? "EXPGem_01.sprite" : "EXPGem_02.sprite";
             Sprite sprite = Managers.Resource.Load<Sprite>(key);
             gc.GetComponent<SpriteRenderer>().sprite = sprite;
-            if (sprite != null )
-            {
-                Debug.Log("name :" + sprite);
-            }
-            else if (sprite == null)
-            {
-                Debug.Log("sprtie null" );
-                Debug.Log("key :" + key);
+           
+            //TEMP
+            GameObject.Find("Grid").GetComponent<GridController>().Add(go);
 
-                Debug.Log("name :" + sprite);
-
-            }
-
-            return gc as T; 
+            return gc as T;
         }
+        else if (type == typeof(ProjectileController)) //else if (typeof(T).IsSubclassOf(typeof(ProjectileController))) { } 해당 If문 조건 검색해보자, 첨 보는 것
+        {
+            GameObject go = Managers.Resource.Instantiate("FireProjectile.prefab", pooling: true);
+            go.transform.position = position;
+
+            ProjectileController pc = go.GetOrAddComponent<ProjectileController>();
+            Projectiles.Add(pc);
+            pc.Init();
+
+            return pc as T;
+        }
+
 
         return null;
     }
 
     public void Despawn<T>(T obj) where T : BaseController
     {
+        if(obj.IsValid() == false)
+        {
+            int a = 3;
+        }
+
         System.Type type = typeof(T);
 
         if (type == typeof(PlayerController))
@@ -87,15 +95,18 @@ public class ObjectManager
             Monsters.Remove(obj as MonsterController);
             Managers.Resource.Destroy(obj.gameObject);
         }
-        else if (type == typeof(ProjectileController))
-        {
-            Projectiles.Remove(obj as ProjectileController);
-            Managers.Resource.Destroy(obj.gameObject);
-        }
         else if (type == typeof(GemController))
         {
             Gems.Remove(obj as GemController);
             Managers.Resource.Destroy (obj.gameObject);
+
+            //TEMP
+            GameObject.Find("Grid").GetComponent<GridController>().Remove(obj.gameObject);
+        }
+        else if (type == typeof(ProjectileController))
+        {
+            Projectiles.Remove(obj as ProjectileController);
+            Managers.Resource.Destroy(obj.gameObject);
         }
     }
 }

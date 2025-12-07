@@ -15,11 +15,14 @@ public class Managers : MonoBehaviour
     PoolManager _pool = new PoolManager();
     GemController _Gem = new GemController();
     DataManager _data = new DataManager();
+    GameManager _game = new GameManager();
+    
     public static ResourceManager Resource { get { return Instance?._resource; } }
     public static ObjectManager Object {  get { return Instance?._object; } }
     public static PoolManager Pool { get { return Instance?._pool; } }
     public static GemController Gem {  get { return Instance?._Gem; } }
     public static DataManager Data { get { return Instance?._data; } }
+    public static GameManager Game { get { return Instance?._game; } }
 
     //매니저 생성 
     public static Managers Instance
@@ -55,8 +58,7 @@ public class Managers : MonoBehaviour
 
     #region 복사한것
     #region Contents
-    //GameManager _game = new GameManager();
-    //public static GameManager Game { get { return Instance?._game; } }
+    
     #endregion
 
     #region Core

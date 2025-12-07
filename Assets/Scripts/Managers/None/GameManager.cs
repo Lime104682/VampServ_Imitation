@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class GameManager
 {
+    public int Gold { get; set; }
+    public int Gem { get; set; }
 
     #region 복사해온것
     //public PlayerController Player { get { return Managers.Object?.Player; } }
