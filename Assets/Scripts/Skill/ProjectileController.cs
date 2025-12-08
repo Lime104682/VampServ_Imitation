@@ -39,6 +39,8 @@ public class ProjectileController : SkillController
 		transform.position += _moveDir * _speed * Time.fixedDeltaTime;
 	}
 
+	
+
 	void OnTriggerEnter2D(Collider2D collision)
 	{
 		MonsterController mc = collision.gameObject.GetComponent<MonsterController>();

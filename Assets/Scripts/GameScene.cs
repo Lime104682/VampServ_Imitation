@@ -56,15 +56,17 @@ public class GameScene : MonoBehaviour
         player.gameObject.GetComponent<PlayerController>()._joystick
         = joystick.gameObject.GetComponent<FloatingJoystick>();
 
-        foreach (var playerData in Managers.Data.PlayerDic.Values)
-        {
-            Debug.Log($"Lvl : {playerData.level}, Hp{playerData.maxHp}");
-        }
 
-        foreach (var skillData in Managers.Data.SkillDic.Values)
-        {
-            Debug.Log($"Name : {skillData.name}, skillType : {skillData.skillType}, damage : {skillData.damage}");
-        }
+        ////È®ÀÎ¿ë
+        //foreach (var playerData in Managers.Data.PlayerDic.Values)
+        //{
+        //    Debug.Log($"Lvl : {playerData.level}, Hp{playerData.maxHp}");
+        //}
+
+        //foreach (var skillData in Managers.Data.SkillDic.Values)
+        //{
+        //    Debug.Log($"Name : {skillData.name}, skillType : {skillData.skillType}, damage : {skillData.damage}");
+        //}
     }
 
 }
