@@ -34,7 +34,7 @@ public class GameScene : MonoBehaviour
         //GameObject sprit = Managers.Resource.Instantiate("EXPGem_01");
         //sprit.name = "@EXP_Gem";
 
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < 1; i++)
         {
             Vector3 randPos = new Vector2(Random.Range(-10, 10), Random.Range(-10, 10));
             MonsterController monsters = Managers.Object.Spawn<MonsterController>(randPos, Random.Range(0, 2));

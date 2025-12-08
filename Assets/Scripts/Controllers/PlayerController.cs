@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Assertions.Must;
 
 public class PlayerController : CreatureController
 {
@@ -12,6 +13,8 @@ public class PlayerController : CreatureController
 
     float EnvCollectDtst { get; set; } = 1.0f;
 
+    [SerializeField]
+    Transform _indicator;
     [SerializeField]
     Transform _fireSocket;
 
@@ -42,8 +45,23 @@ public class PlayerController : CreatureController
 
         transform.position += dir;
 
+        //_indicator 회전
+        if (_movePlayer.normalized != Vector3.zero)
+        {
+            _indicator.eulerAngles = new Vector3(0, 0, Mathf.Atan2(-dir.x, dir.y) * 180 / Mathf.PI);
+        }
+
         //좌우 변환
-        GetComponent<SpriteRenderer>().flipX = _movePlayer.x > 0;
+        if (_movePlayer.x > 0)
+        {
+            GetComponent<SpriteRenderer>().flipX = true;
+        }
+        else if (_movePlayer.x < 0)
+        {
+            GetComponent<SpriteRenderer>().flipX = false;
+        }
+
+        GetComponent<Rigidbody2D>().velocity = Vector3.zero;
     }
 
     void CollectEnv()
@@ -65,9 +83,9 @@ public class PlayerController : CreatureController
         //Debug.Log($"SearchGems({findGems.Count}) TotalGems({gems.Count}");
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        MonsterController target = collision.gameObject.GetComponent<MonsterController>();
+       MonsterController target = collision.gameObject.GetComponent<MonsterController>();
         if (target == null)
             return;
     }
@@ -101,10 +119,8 @@ public class PlayerController : CreatureController
 
         while (true)
         {
-            ProjectileController pc = Managers.Object.Spawn<ProjectileController>(transform.position);
-            pc.SetInfo(1, this, this.transform.position);
-            //ProjectileController pc = Managers.Object.Spawn<ProjectileController>(_fireSocket.position, 1);
-            //pc.SetInfo(1, this, (_fireSocket.position - _indicator.position).normalized);
+            ProjectileController pc = Managers.Object.Spawn<ProjectileController>(_fireSocket.position, 1);
+            pc.SetInfo(1, this, (_fireSocket.position - _indicator.position).normalized);
 
             yield return wait;
         }

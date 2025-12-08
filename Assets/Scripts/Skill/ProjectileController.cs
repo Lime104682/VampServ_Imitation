@@ -6,7 +6,7 @@ public class ProjectileController : SkillController
 {
 	CreatureController _owner;
 	Vector3 _moveDir;
-	float _speed = 10.0f;
+	float _speed = 1.0f;
 	float _lifeTime = 10.0f;
 
 	public override bool Init()
