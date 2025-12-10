@@ -12,9 +12,11 @@ public interface ILoader<Key, Value>
 
 public class DataManager
 {
+    //내수용
     public Dictionary<int, Data.PlayerData> PlayerDic { get; private set; } = new Dictionary<int, Data.PlayerData>();
     public Dictionary<int, Data.SkillData> SkillDic { get; private set; } = new Dictionary<int, Data.SkillData>();
 
+    //각 Dictionary 초기화
     public void Init()
     {
         /* json

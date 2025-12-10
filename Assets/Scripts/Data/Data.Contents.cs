@@ -7,6 +7,8 @@ using UnityEngine;
 namespace Data
 {
 	#region PlayerData
+
+	//PlayerData Parssing
 	public class PlayerData
 	{
 		[XmlAttribute]
@@ -62,18 +64,6 @@ namespace Data
 	#endregion
 
 	#region SkillData
-
-	[Serializable]
-	public class HitEffect
-	{
-		[XmlAttribute]
-		public string type;
-		[XmlAttribute]
-		public int templateID;
-		[XmlAttribute]
-		public int value;
-	}
-
 	public class SkillData
 	{
 		[XmlAttribute]
@@ -117,5 +107,18 @@ namespace Data
 		}
 	}
 
-	#endregion
+    #endregion
+
+    #region HitEffectData
+	[Serializable]
+	public class HitEffect
+	{
+		[XmlAttribute]
+		public string type;
+		[XmlAttribute]
+		public int templateID;
+		[XmlAttribute]
+		public int value;
+	}
+    #endregion
 }

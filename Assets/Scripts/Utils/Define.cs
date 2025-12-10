@@ -4,6 +4,17 @@ using UnityEngine;
 
 public static class Define
 {
+    public enum UIEvent
+    {
+        Click,
+        Pressed,
+        PointerDown,
+        PointerUp,
+        BeginDrag,
+        Drag,
+        EndDrag,
+    }
+
     public enum Scene
     {
         Unknown,
@@ -24,6 +35,7 @@ public static class Define
         Projectile, //투사체
         Env //환경채집물
     }
+
     public enum SkillType
     {
         None,
@@ -32,6 +44,28 @@ public static class Define
         Etc,
     }
 
+    public enum StageType
+    {
+        Normal,
+        Boss,
+    }
+
+    public enum CreatureState
+    {
+        Idle,
+        Moving,
+        Skill,
+        Dead
+    }
+
+    public const int GOBLIN_ID = 1;
+    public const int SNAKE_ID = 2;
+    public const int BOSS_ID = 3;
+
     public const string PLAYER_DATA_ID = "Player.prefab";
+    public const string JOYSTICK_DATA_ID = "Floating Joystick.prefab";
+    public const string MAP_DATA_ID = "Map.prefab";
     public const string EXP_GEM_PREFAB = "EXPGem.prefab";
+
+    public const int EGO_SWORD_ID = 10;
 }

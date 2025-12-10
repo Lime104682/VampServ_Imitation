@@ -5,7 +5,15 @@ using UnityEngine;
 
 
 public static class Utils
-{ 
+{
+    public static T GetOrAddComponent<T>(GameObject go) where T : UnityEngine.Component
+    {
+        T component = go.GetComponent<T>();
+        if (component == null)
+            component = go.AddComponent<T>();
+        return component;
+    }
+
     public static GameObject FindChild(GameObject go, string name = null, bool recursive = false)
     {
         Transform transform = FindChild<Transform>(go, name, recursive);
@@ -15,7 +23,7 @@ public static class Utils
         return transform.gameObject;
     }
 
-    public static T FindChild<T>(GameObject go, string name = null, bool recursive = false) where T : UnityEngine.Component
+    public static T FindChild<T>(GameObject go, string name = null, bool recursive = false) where T : UnityEngine.Object
     {
         if (go == null)
             return null;
@@ -37,12 +45,26 @@ public static class Utils
         {
             foreach (T component in go.GetComponentsInChildren<T>())
             {
-                if (string.IsNullOrEmpty(name) || component.gameObject.name == name)
+                if (string.IsNullOrEmpty(name) || component.name == name)
                     return component;
             }
         }
 
         return null;
     }
-  
+
+    //스폰 위치 조정
+    public static Vector2 GenerateMonsterSpawnPosition(Vector2 characterPosition, float minDistance = 10.0f, float maxDistance = 20.0f)
+    {
+        float angle = UnityEngine.Random.Range(0, 360) * Mathf.Deg2Rad;
+        float distance = UnityEngine.Random.Range(minDistance, maxDistance);
+
+        float xDist = Mathf.Cos(angle) * distance;
+        float yDist = Mathf.Sin(angle) * distance;
+
+        Vector2 spawnPosition = characterPosition + new Vector2(xDist, yDist);
+
+        return spawnPosition;
+    }
+
 }

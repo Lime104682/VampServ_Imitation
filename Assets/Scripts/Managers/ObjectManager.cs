@@ -1,20 +1,25 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using static Define;
 
 public class ObjectManager
 {
+    //내수용
     public PlayerController Player { get; private set; }
 
+    //읽기용
     public HashSet<MonsterController> Monsters { get; } = new HashSet<MonsterController>();
     public HashSet<ProjectileController> Projectiles { get; } = new HashSet<ProjectileController>();
     public HashSet<GemController> Gems { get; } = new HashSet<GemController>();
 
+    //전역 생성 관리, 대상은 BaseController 상속받은 대상만 한정한다
     public T Spawn<T>(Vector3  position, int templateID = 0) where T : BaseController
     {
+        //스크립트 확인용
         System.Type type = typeof(T);
 
         if (type == typeof(PlayerController))
@@ -72,6 +77,22 @@ public class ObjectManager
 
             return pc as T;
         }
+        else if (typeof(T).IsSubclassOf(typeof(SkillController)))
+        {
+            if (Managers.Data.SkillDic.TryGetValue(templateID, out Data.SkillData skillData) == false)
+            {
+                Debug.LogError($"ObjectManager Spawn Skill Failed {templateID}");
+                return null;
+            }
+
+            GameObject go = Managers.Resource.Instantiate(skillData.prefab, pooling: true);
+            go.transform.position = position;
+
+            T t = go.GetOrAddComponent<T>();
+            t.Init();
+
+            return t;
+        }
 
 
         return null;
@@ -81,8 +102,9 @@ public class ObjectManager
     {
         if(obj.IsValid() == false)
         {
-            int a = 3;
+            return;
         }
+
 
         System.Type type = typeof(T);
 
@@ -108,5 +130,13 @@ public class ObjectManager
             Projectiles.Remove(obj as ProjectileController);
             Managers.Resource.Destroy(obj.gameObject);
         }
+    }
+
+    public void DespawnAllMonsters()
+    {
+        var monsters = Monsters.ToList();
+
+        foreach (var monster in monsters)
+            Despawn<MonsterController>(monster);
     }
 }

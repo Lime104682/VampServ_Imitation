@@ -41,6 +41,7 @@ class Pool
 
     #region Funcs
 
+    //_prefab 생성, 생성된 오브젝트 위치 및 이름 명명
     GameObject OnCreate()
     {
         GameObject go = GameObject.Instantiate(_prefab);
@@ -48,17 +49,17 @@ class Pool
         go.name = _prefab.name;
         return go;
     }
-
+    //가시화
     void OnGet(GameObject go)
     {
         go.SetActive(true);
     }
-
+    //비가시화
     void OnRelease(GameObject go)
     {
         go.SetActive(false);
     }
-
+    //_prefab 삭제
     void OnDestroy(GameObject go)
     {
         GameObject.Destroy(go);
@@ -90,6 +91,7 @@ public class PoolManager
         return true;
     }
 
+    //생성
     void CreatePool(GameObject prefab)
     {
         Pool pool = new Pool(prefab);

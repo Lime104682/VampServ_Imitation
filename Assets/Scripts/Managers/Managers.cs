@@ -7,70 +7,55 @@ using UnityEngine.SceneManagement;
 
 public class Managers : MonoBehaviour
 {
+    //매니저 생성 및 유무확인
     static Managers s_instance;
     static bool s_init = false;
 
+    //각 스크립트 생성
     ResourceManager _resource = new ResourceManager();
     ObjectManager _object = new ObjectManager();
     PoolManager _pool = new PoolManager();
-    GemController _Gem = new GemController();
     DataManager _data = new DataManager();
     GameManager _game = new GameManager();
-    
+    SceneManagerEx _scene = new SceneManagerEx();
+    SoundManager _sound = new SoundManager();
+    UIManager _ui = new UIManager();
+
+    //각 스크립트 접근, 매니저가 생성되었다면 생성된 스크립트 반환
+    //매니저가 초기화 되기 전에 접근하는 것을 방지
     public static ResourceManager Resource { get { return Instance?._resource; } }
-    public static ObjectManager Object {  get { return Instance?._object; } }
+    public static ObjectManager Object { get { return Instance?._object; } }
     public static PoolManager Pool { get { return Instance?._pool; } }
-    public static GemController Gem {  get { return Instance?._Gem; } }
     public static DataManager Data { get { return Instance?._data; } }
     public static GameManager Game { get { return Instance?._game; } }
+    public static SceneManagerEx Scene { get { return Instance?._scene; } }
+    public static SoundManager Sound { get { return Instance?._sound; } }
+    public static UIManager UI { get { return Instance?._ui; } }
 
-    //매니저 생성 
+    //매니저 싱글톤 생성 혹은 반환 
     public static Managers Instance
     {
         get
         {
-            if(s_init == false)
+            if (s_init == false)
             {
-                GameObject go = GameObject.Find("GameManagers");
+                GameObject go = GameObject.Find("Managers");
                 if (go == null)
                 {
-                    go = new GameObject() { name = "GameManagers"};
+                    go = new GameObject() { name = "Managers" };
                     go.AddComponent<Managers>();
 
                 }
 
                 DontDestroyOnLoad(go);
                 s_instance = go.GetComponent<Managers>();
-                
+
                 s_init = true;
             }
 
             return s_instance;
         }
-        
+
     }
-
-    public void init()
-    {
-        _data.Init();
-    }
-
-
-    #region 복사한것
-    #region Contents
     
-    #endregion
-
-    #region Core
-    //SceneManagerEx _scene = new SceneManagerEx();
-    //SoundManager _sound = new SoundManager();
-    //UIManager _ui = new UIManager();
-    //public static SceneManagerEx Scene { get { return Instance?._scene; } }
-    //public static SoundManager Sound { get { return Instance?._sound; } }
-    //public static UIManager UI { get { return Instance?._ui; } }
-    #endregion
-
-    #endregion
-
-
 }

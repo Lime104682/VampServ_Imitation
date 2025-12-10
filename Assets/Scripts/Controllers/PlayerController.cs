@@ -26,6 +26,7 @@ public class PlayerController : CreatureController
         _speed = 0.5f;
 
         StartProjectile();
+        StartEgoSword();
 
         return true;
     }
@@ -67,9 +68,12 @@ public class PlayerController : CreatureController
     void CollectEnv()
     {
         float sqrCollectDist = EnvCollectDtst * EnvCollectDtst;
-        List<GemController> gems = Managers.Object.Gems.ToList();
-        foreach (GemController gem in gems)
+        var findGems = GameObject.Find("Grid").GetComponent<GridController>().GatherObjects(transform.position, EnvCollectDtst + 0.5f);
+
+        foreach (var go in findGems)
         {
+            GemController gem = go.GetComponent<GemController>();
+
             Vector3 dir = gem.transform.position - transform.position;
             if (dir.sqrMagnitude <= sqrCollectDist)
             {
@@ -77,10 +81,6 @@ public class PlayerController : CreatureController
                 Managers.Object.Despawn(gem);
             }
         }
-
-        var findGems = GameObject.Find("Grid").GetComponent<GridController>().GatherObjects(transform.position, EnvCollectDtst + 0.5f);
-
-        Debug.Log($"SearchGems({findGems.Count}) TotalGems({gems.Count}");
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -124,6 +124,21 @@ public class PlayerController : CreatureController
 
             yield return wait;
         }
+    }
+
+    #endregion
+
+    #region EgoSword
+    EgoSwordController _egoSword;
+    void StartEgoSword()
+    {
+        if (_egoSword.IsValid())
+            return;
+
+        _egoSword = Managers.Object.Spawn<EgoSwordController>(_indicator.position, Define.EGO_SWORD_ID);
+        _egoSword.transform.SetParent(_indicator);
+
+        _egoSword.ActivateSkill();
     }
 
     #endregion

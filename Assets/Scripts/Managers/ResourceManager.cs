@@ -61,6 +61,7 @@ public class ResourceManager
 		}
 
 		string loadKey = key;
+
 		if (key.Contains(".sprite"))
 		{
 			loadKey = $"{key}[{key.Replace(".sprite", "")}]";
@@ -84,10 +85,13 @@ public class ResourceManager
         }
     }
 
-	public void LoadAllAsync<T>(string label, Action<string, int, int> callback) where T : UnityEngine.Object
+    
+	//Addreassables의 특정 label에 속한 에셋들 비동기로 가져오기
+    public void LoadAllAsync<T>(string label, Action<string, int, int> callback) where T : UnityEngine.Object
 	{
-		var opHandle = Addressables.LoadResourceLocationsAsync(label, typeof(T));
-		opHandle.Completed += (op) =>
+        //key에 해당하는 에셋들의 경로(IResourceLocation)를 가져온다. 메모리에 에셋을 로드한 것이 아닌 에셋들 경로만 가져온 것.
+        var opHandle = Addressables.LoadResourceLocationsAsync(label, typeof(T)); 
+        opHandle.Completed += (op) =>
 		{
 			int loadCount = 0;
 			int totalCount = op.Result.Count;
