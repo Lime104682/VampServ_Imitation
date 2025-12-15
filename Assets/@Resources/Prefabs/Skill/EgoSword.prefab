@@ -13,14 +13,13 @@ GameObject:
   - component: {fileID: 1681808170223585279}
   - component: {fileID: 5190777307774814159}
   - component: {fileID: 1957456001836442911}
-  - component: {fileID: 3060771695278998194}
   m_Layer: 8
   m_Name: EgoSword_Melee_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1681808170223585277
 Transform:
   m_ObjectHideFlags: 0
@@ -53,7 +52,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 0
   prewarm: 0
-  playOnAwake: 0
+  playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -4917,7 +4916,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 7
 --- !u!61 &1957456001836442911
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4963,18 +4962,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 6.7, y: 4}
   m_EdgeRadius: 0
---- !u!114 &3060771695278998194
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1681808170223585278}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac25f57f1a91e574d998f50503a18b89, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1779556092303888293
 GameObject:
   m_ObjectHideFlags: 0
@@ -9876,14 +9863,13 @@ GameObject:
   - component: {fileID: 1019244395028816544}
   - component: {fileID: 7593453727462018241}
   - component: {fileID: 9073966926747796760}
-  - component: {fileID: 5371290573047802954}
   m_Layer: 8
   m_Name: EgoSword_Melee_04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5469834221276245073
 Transform:
   m_ObjectHideFlags: 0
@@ -9919,7 +9905,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 0
   prewarm: 0
-  playOnAwake: 0
+  playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -14783,7 +14769,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 7
 --- !u!58 &9073966926747796760
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -14819,18 +14805,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 4
---- !u!114 &5371290573047802954
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2158826152715693120}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac25f57f1a91e574d998f50503a18b89, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4116982615402460806
 GameObject:
   m_ObjectHideFlags: 0
@@ -14844,14 +14818,13 @@ GameObject:
   - component: {fileID: 5519385710949014156}
   - component: {fileID: 7491973979033708402}
   - component: {fileID: 6693947162167648181}
-  - component: {fileID: 3080650147182874276}
   m_Layer: 8
   m_Name: EgoSword_Melee_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7815593366314758789
 Transform:
   m_ObjectHideFlags: 0
@@ -14884,7 +14857,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 0
   prewarm: 0
-  playOnAwake: 0
+  playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -19748,7 +19721,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 7
 --- !u!61 &6693947162167648181
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -19794,18 +19767,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 6.7, y: 4}
   m_EdgeRadius: 0
---- !u!114 &3080650147182874276
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4116982615402460806}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac25f57f1a91e574d998f50503a18b89, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4168393685677789564
 GameObject:
   m_ObjectHideFlags: 0
@@ -29729,14 +29690,13 @@ GameObject:
   - component: {fileID: 795651201226046556}
   - component: {fileID: 1235661172174245444}
   - component: {fileID: 1072468647315731181}
-  - component: {fileID: 2878288054365369020}
   m_Layer: 8
   m_Name: EgoSword_Melee_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4727705145483031322
 Transform:
   m_ObjectHideFlags: 0
@@ -29769,7 +29729,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 0
   prewarm: 0
-  playOnAwake: 0
+  playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -34633,7 +34593,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 7
 --- !u!61 &1072468647315731181
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -34679,15 +34639,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4, y: 4}
   m_EdgeRadius: 0
---- !u!114 &2878288054365369020
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6724488415104267555}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac25f57f1a91e574d998f50503a18b89, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

@@ -176,8 +176,11 @@ public class PlayerController : CreatureController
         _speed = 5.0f;
         Managers.Game.OnMoveDirChanged += HandleOnMoveDirChanged;
 
-        StartProjectile();
-        StartEgoSword();
+        //Todo
+        Skills.AddSkill<FireballSkill>(transform.position);
+        Skills.AddSkill<EgoSword>(_indicator.position);
+        //StartProjectile();
+        //StartEgoSword();
 
         return true;
     }
@@ -252,44 +255,44 @@ public class PlayerController : CreatureController
     }
 
     //TEMP
-    #region FireProjectile
-    Coroutine _coFireProjectile;
+    //#region FireProjectile
+    //Coroutine _coFireProjectile;
 
-    void StartProjectile()
-    {
-        if (_coFireProjectile != null)
-            StopCoroutine(_coFireProjectile);
+    //void StartProjectile()
+    //{
+    //    if (_coFireProjectile != null)
+    //        StopCoroutine(_coFireProjectile);
 
-        _coFireProjectile = StartCoroutine(CoStartProjectile());
-    }
+    //    _coFireProjectile = StartCoroutine(CoStartProjectile());
+    //}
 
-    IEnumerator CoStartProjectile()
-    {
-        WaitForSeconds wait = new WaitForSeconds(0.5f);
+    //IEnumerator CoStartProjectile()
+    //{
+    //    WaitForSeconds wait = new WaitForSeconds(0.5f);
 
-        while (true)
-        {
-            ProjectileController pc = Managers.Object.Spawn<ProjectileController>(_fireSocket.position, 1);
-            pc.SetInfo(1, this, (_fireSocket.position - _indicator.position).normalized);
+    //    while (true)
+    //    {
+    //        ProjectileController pc = Managers.Object.Spawn<ProjectileController>(_fireSocket.position, 1);
+    //        pc.SetInfo(1, this, (_fireSocket.position - _indicator.position).normalized);
 
-            yield return wait;
-        }
-    }
+    //        yield return wait;
+    //    }
+    //}
 
-    #endregion
+    //#endregion
 
-    #region EgoSword
-    EgoSwordController _egoSword;
-    void StartEgoSword()
-    {
-        if (_egoSword.IsValid())
-            return;
+    //#region EgoSword
+    //EgoSwordController _egoSword;
+    //void StartEgoSword()
+    //{
+    //    if (_egoSword.IsValid())
+    //        return;
 
-        _egoSword = Managers.Object.Spawn<EgoSwordController>(_indicator.position, Define.EGO_SWORD_ID);
-        _egoSword.transform.SetParent(_indicator);
+    //    _egoSword = Managers.Object.Spawn<EgoSwordController>(_indicator.position, Define.EGO_SWORD_ID);
+    //    _egoSword.transform.SetParent(_indicator);
 
-        _egoSword.ActivateSkill();
-    }
+    //    _egoSword.ActivateSkill();
+    //}
 
-    #endregion
+    //#endregion
 }

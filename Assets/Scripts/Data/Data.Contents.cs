@@ -72,9 +72,9 @@ namespace Data
 		[XmlAttribute]
 		public string name;
 
-		[XmlAttribute(AttributeName = "type")]
-		//public string skillTypeStr;
-		public Define.SkillType skillType = Define.SkillType.None;
+		//[XmlAttribute(AttributeName = "type")]
+		////public string skillTypeStr;
+		//public Define.SkillType skillType = Define.SkillType.None;
 
 		[XmlAttribute]
 		public int nextID;

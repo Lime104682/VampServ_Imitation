@@ -17,11 +17,6 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 80b6da6908a2039499030eda264c07d8
   m_SerializeEntries:
-  - m_GUID: 0d230cc8be529a542a08cb878ab14b18
-    m_Address: Floating Joystick.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: eb47f58628a70644dbb53225547af51b
     m_Address: UI_GameResultPopup.prefab
     m_ReadOnly: 0
