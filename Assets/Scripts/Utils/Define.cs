@@ -63,7 +63,7 @@ public static class Define
     public const int BOSS_ID = 3;
 
     public const string PLAYER_DATA_ID = "Player.prefab";
-    public const string JOYSTICK_DATA_ID = "Floating Joystick.prefab";
+    public const string JOYSTICK_DATA_ID = "UI_Joystick.prefab";
     public const string MAP_DATA_ID = "Map.prefab";
     public const string EXP_GEM_PREFAB = "EXPGem.prefab";
 

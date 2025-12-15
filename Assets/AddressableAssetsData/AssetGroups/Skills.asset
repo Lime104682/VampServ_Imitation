@@ -53,6 +53,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - FirstLoad
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: eaf390bbeaefc174fbff381b12db2b4b
+    m_Address: Fireball.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - FirstLoad
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 5e758224702a8b64eb54b984c2d48ac9, type: 2}
   m_SchemaSet:

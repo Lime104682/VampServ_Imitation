@@ -65,19 +65,19 @@ public class GameScene : MonoBehaviour
         for (int i = 0; i < 10; i++)
         {
             Vector3 randPos = new Vector2(Random.Range(-10, 10), Random.Range(-10, 10));
-            MonsterController monsters = Managers.Object.Spawn<MonsterController>(randPos, Random.Range(0, 2));
+            MonsterController monsters = Managers.Object.Spawn<MonsterController>(randPos,1 + Random.Range(0, 2));
 
             monsters.transform.parent = MonsterHouse.transform;
         }
 
         #region 이름&위치 명명
         joystick.name = "@UI_Joystick";
-        GameObject canvas = GameObject.Find("Canvas");
-        joystick.transform.parent = canvas.transform;
+        //GameObject canvas = GameObject.Find("Canvas");
+        //joystick.transform.parent = canvas.transform;
         map.name = "@Map";
 
         Camera.main.GetComponent<CameraController>()._target = player.gameObject;
-        player.gameObject.GetComponent<PlayerController>()._joystick = joystick.gameObject.GetComponent<FloatingJoystick>();
+        //player.gameObject.GetComponent<PlayerController>()._joystick = joystick.gameObject.GetComponent<FloatingJoystick>();
         #endregion
 
         #region xml파일확인용
@@ -122,13 +122,13 @@ public class GameScene : MonoBehaviour
         if (killCount == 5)
         {
             // BOSS
-            //StageType = Define.StageType.Boss;
+            StageType = Define.StageType.Boss;
 
-            //Managers.Object.DespawnAllMonsters();
+            Managers.Object.DespawnAllMonsters();
 
-            //Vector2 spawnPos = Utils.GenerateMonsterSpawnPosition(Managers.Game.Player.transform.position, 5, 10);
+            Vector2 spawnPos = Utils.GenerateMonsterSpawnPosition(Managers.Game.Player.transform.position, 5, 10);
 
-            //Managers.Object.Spawn<MonsterController>(spawnPos, Define.BOSS_ID);
+            Managers.Object.Spawn<MonsterController>(spawnPos, Define.BOSS_ID);
         }
     }
 

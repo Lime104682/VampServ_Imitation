@@ -20,28 +20,37 @@ MonoBehaviour:
   - m_GUID: 0d230cc8be529a542a08cb878ab14b18
     m_Address: Floating Joystick.prefab
     m_ReadOnly: 0
-    m_SerializedLabels:
-    - FirstLoad
+    m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: eb47f58628a70644dbb53225547af51b
     m_Address: UI_GameResultPopup.prefab
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - FirstLoad
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 30acd8ae089d94246a526588fb54ef36
-    m_Address: Assets/@Resources/Prefabs/UI/UI_GameScene.prefab
+    m_Address: UI_GameScene.prefab
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - FirstLoad
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: da9395a8b31bed04abf0b88c4198e048
-    m_Address: Assets/@Resources/Prefabs/UI/UI_SkillCardItem.prefab
+    m_Address: UI_SkillCardItem.prefab
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - FirstLoad
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1b132ea0062ad5e438c84c7eea542960
-    m_Address: Assets/@Resources/Prefabs/UI/UI_SkillSelectPopup.prefab
+    m_Address: UI_SkillSelectPopup.prefab
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - FirstLoad
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 566cb01a134c7534c801423648d6bec9
+    m_Address: UI_Joystick.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - FirstLoad
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 5e758224702a8b64eb54b984c2d48ac9, type: 2}

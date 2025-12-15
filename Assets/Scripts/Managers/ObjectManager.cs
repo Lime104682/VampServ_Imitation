@@ -36,7 +36,20 @@ public class ObjectManager
         }
         else if (type == typeof(MonsterController))
         {
-            string name = (templateID == 0 ? "Goblin_01" : "Snake_01");
+            string name = "";
+
+            switch (templateID)
+            {
+                case Define.GOBLIN_ID:
+                    name = "Goblin_01";
+                    break;
+                case Define.SNAKE_ID:
+                    name = "Snake_01";
+                    break;
+                case Define.BOSS_ID:
+                    name = "Boss_01";
+                    break;
+            };
             var go = Managers.Resource.Instantiate(name + ".prefab", pooling: true);
             go.transform.position = position;
 
