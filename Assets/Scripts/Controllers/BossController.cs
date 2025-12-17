@@ -13,12 +13,12 @@ public class BossController : MonsterController
         CreatureState = Define.CreatureState.Moving;
         Hp = 10000;
 
-        //CreatureState = Define.CreatureState.Skill;
-        //Skills.AddSkill<Move>(transform.position);
-        //Skills.AddSkill<Dash>(transform.position);
-        //Skills.AddSkill<Dash>(transform.position);
-        //Skills.AddSkill<Dash>(transform.position);
-        //Skills.StartNextSequenceSkill();
+        CreatureState = Define.CreatureState.Skill;
+
+        Skills.AddSkill<Move>(transform.position);
+        Skills.AddSkill<Dash>(transform.position);
+
+        Skills.StartNextSequenceSkill();
 
         return true;
     }
@@ -34,7 +34,7 @@ public class BossController : MonsterController
                 _animator.Play("Moving");
                 break;
             case Define.CreatureState.Skill:
-                _animator.Play("Attack");
+                //_animator.Play("Attack");
                 break;
             case Define.CreatureState.Dead:
                 _animator.Play("Death");
